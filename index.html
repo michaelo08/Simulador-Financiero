@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="header">
+    <nav class="container-nav">
+        <div class="logo-simulator">
+            <img src="./logo.png" alt="logo">
+        </div>
+    </nav>
+    <div class="contento-simulator">
+        <div class="container-left-simulator">
+          <div class="content-cards">
+            <div class="card-info">
+                <div class="img-card">
+                    <img src="https://finanzasyproyectos.net/wp-content/uploads/2018/06/313-min.jpg" alt="" >
+                </div>
+                <div class="text-card">
+                    <div class="title-card">
+                        Tabla de Amortización 
+                    </div>
+                    <div class="info-card">
+                        Visualiza cómo se distribuyen tus pagos a lo largo del tiempo y cómo afecta cada abono a tu saldo pendiente.
+                    </div>
+                </div>
+            </div>
+            <div class="card-info">
+                <div class="img-card">
+                    <img src="https://s10.s3c.es/imag/_v0/770x420/f/d/f/600x400_gamificacion-ordenador-raton-dibujo-770-dreamstime.jpg" alt="" > 
+                </div>
+                <div class="text-card">
+                    <div class="title-card">
+                        Simulación de Abonos
+                    </div>
+                    <div class="info-card">
+                        Personaliza tu experiencia ingresando diferentes abonos mensuales. 
+                    </div>
+                </div>
+            </div>
+            <div class="card-info">
+                <div class="img-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuf2wDsdL87mzdJnFNnYqzldbHQeCIj0Qo7w&usqp=CAU" alt="" >
+                </div>
+                <div class="text-card">
+                    <div class="title-card">
+                        Exploración de Tasas de Interés
+                    </div>
+                    <div class="info-card">
+                        ¿No estás seguro de las tasas de interés actuales? No te preocupes. Ingresa <a href="https://www.rankia.co/blog/mejores-creditos-y-prestamos-colombia/3149239-mejores-creditos-libre-inversion" >aquí</a> y descubre las tasas disponibles, encuentra la que se ajusta a tus necesidades.
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-right-simulator">
+            <div class="form">
+                <div class="form-title">
+                    <h1>Digita los datos</h2>
+                </div>
+                <div class="content-inputs">
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="Capital">Capital</label>
+                            <input id="Capital" type="text" name="Capital" placeholder="Cantidad de dinero" required>
+                        </div>
+    
+                        <div class="input-box">
+                            <label for="tasa">Tasa de interés (EA)</label>
+                            <input id="tasa" type="text" name="tasa" placeholder="Digite la tasa de interés%" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="plazoPrestamo">Plazo del prestamo (Años)</label>
+                            <input id="plazoPrestamo" type="text" name="plazoPrestamo" placeholder="Plazo del prestamo" required>
+                        </div>
+    
+                        <div class="input-box">
+                            <label for="frecuenciaPago">Frecuencia de pago</label>
+                            <select input-box id="frecuenciaPago">
+                                <option value="mensual">Mensual</option>
+                                <option value="trimestral">Trimestral</option>
+                                <option value="semestral">Semestral</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="fechaInicio">Fecha Inicio</label>
+                            <input id="fechaInicio" type="date" name="fechaInicio" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="loading-container" class="loading-container">
+                    <img class="loading-gif" src="https://i.pinimg.com/originals/8e/49/37/8e49375f12297ac54aca4d7d82a6935f.gif" alt="Cargando...">
+                </div>
+                <div class="btnsend">
+                   <button class="btn" onclick="handleButtonClick()">
+                    Calcular
+                   </button>     
+                </div>
+    
+            </div>
+            
+        </div>
+    </div>
+    <div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="#f6f6f6" />
+    </g>
+    </svg>
+    </div>
+</div>
+
+
+<section class="container-simulator-result" style="display: none;">
+    <div class="content-result">
+        <h2 >
+            Resultado
+        </h2>
+        <div class="info-result">
+    
+            <div class="input-box">
+                <label for="totalcuotas">Numero de cuotas</label>
+                <input type="number" class="totalcuotas" name="totalcuotas" id="totalcuotas" min="1">
+            </div>
+            <div class="input-box">
+                <label for="Intereses">Intereses: </label>
+                <input type="number" name="Intereses" class="Intereses" id="Intereses" min="1">
+            </div>
+            <button class="btn-abono" style="display: none;" onclick="mostrarCuadroAbono()">Aplicar Abono</button>
+
+        </div>
+        <div id="cuadroAbono" style="display: none;">
+     
+            <div class="form-abono">
+                <div class="input-box detail-table">
+                    <label for="numeroCuotaAbono">Número de Cuota:</label>
+                    <input type="number" name="numeroCuotaAbono" id="numeroCuotaAbono" min="1"  placeholder="Número cuota">
+                </div>
+                <div class="input-box detail-table">
+                    <label for="valorAbono">Valor de Abono:</label>
+                    <input type="number" name="valorAbono" id="valorAbono" min="1"  placeholder="Valor abono">
+                </div>                
+                <button class="btn-abono_aplicar"  onclick="aplicarAbono()">Aplicar</button>
+            </div>
+
+            
+        </div>
+        <div class="table-result">
+            <table id="tablaAmortizacion" class="tablaAmortizacion" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Número de Cuota</th>
+                        <th>Fecha de Pago</th>
+                        <th>Valor de la Cuota</th>
+                        <th>Interés</th>
+                        <th>Amortización</th>
+                        <th>Saldo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas de la tabla se agregarán aquí mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>
